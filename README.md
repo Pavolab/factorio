@@ -2,11 +2,11 @@
 
 A Docker image for Factorio server
 
-[![MicroBadger Size](https://img.shields.io/microbadger/image-size/pavolab/factorio.svg?style=flat-square)](https://microbadger.com/#/images/pavolab/factorio)
-[![Docker Automated build](https://img.shields.io/docker/automated/pavolab/factorio.svg?style=flat-square)](https://hub.docker.com/r/pavolab/factorio/)
-[![Docker Build Status](https://img.shields.io/docker/build/pavolab/factorio.svg?style=flat-square)](https://hub.docker.com/r/pavolab/factorio/)
-[![GitHub](https://img.shields.io/github/license/pavolab/factorio.svg?style=flat-square)](https://github.com/pavolab/factorio/blob/master/LICENSE)
-![factorio Version](https://img.shields.io/badge/Factorio-0.16.51-blue.svg?style=flat-square)
+[![MicroBadger Size](https://img.shields.io/microbadger/image-size/pavolab/factorio.svg?style=for-the-badge)](https://microbadger.com/#/images/pavolab/factorio)
+[![Docker Automated build](https://img.shields.io/docker/automated/pavolab/factorio.svg?style=for-the-badge)](https://hub.docker.com/r/pavolab/factorio/)
+[![Docker Build Status](https://img.shields.io/docker/build/pavolab/factorio.svg?style=for-the-badge)](https://hub.docker.com/r/pavolab/factorio/)
+[![GitHub](https://img.shields.io/github/license/pavolab/factorio.svg?style=for-the-badge)](https://github.com/pavolab/factorio/blob/master/LICENSE)
+![factorio Version](https://img.shields.io/badge/Factorio-0.16.51-blue.svg?style=for-the-badge)
 
 * `0.16.51`, `0.16`, `stable`, `latest`, [(latest/Dockerfile)](https://github.com/Pavolab/factorio/blob/master/latest/Dockerfile)
 
@@ -27,7 +27,7 @@ sudo docker run -d \
   -v /opt/factorio:/factorio \
   --name factorio \
   --restart=always  \
-  thrimbda/factorio:stable
+  pavolab/factorio:stable
 ```
 
 For those new to Docker, here is an explanation of the options:
@@ -59,6 +59,22 @@ docker start factorio
 ```
 
 Try to connect to the server. Check the logs if it isn't working.
+
+### Choose a save to run
+
+More often we need to choose to load a save file:
+
+```bash
+sudo docker run -d \
+  -p 34197:34197/udp \
+  -p 27015:27015/tcp \
+  -v /opt/factorio:/factorio \
+  --name factorio \
+  --restart=always  \
+  --env MODE=normal \
+  --env SELECTED=$NAME_OF_YOUR_SAVE_FILE 
+  pavolab/factorio:stable
+```
 
 
 ## Console
